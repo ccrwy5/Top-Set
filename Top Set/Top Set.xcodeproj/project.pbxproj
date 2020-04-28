@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE3464CF2457991D0067A9AA /* OneRepMaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464CE2457991D0067A9AA /* OneRepMaxViewController.swift */; };
+		CE3464D124579B280067A9AA /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464D024579B280067A9AA /* ProfilePageViewController.swift */; };
+		CE3464D324579B370067A9AA /* CommunityFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464D224579B370067A9AA /* CommunityFeedViewController.swift */; };
+		CE3464D524579B480067A9AA /* PersonalFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464D424579B480067A9AA /* PersonalFeedViewController.swift */; };
+		CE3464D92457CAA70067A9AA /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464D82457CAA70067A9AA /* Alert.swift */; };
+		CE3464DB2457D8EE0067A9AA /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464DA2457D8EE0067A9AA /* NewWorkoutViewController.swift */; };
 		CEC7D8E424577E5A00745385 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7D8E324577E5A00745385 /* UserProfile.swift */; };
 		CEC7D8E624577E7300745385 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7D8E524577E7300745385 /* UserService.swift */; };
 		CEC7D8E824577E8E00745385 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7D8E724577E8E00745385 /* ImageService.swift */; };
@@ -27,6 +33,12 @@
 		040E64B0A5677277D3583868 /* Pods_Top_Set.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Top_Set.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40744D2B01D9F2D415232AB7 /* Pods-Top Set.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Top Set.debug.xcconfig"; path = "Target Support Files/Pods-Top Set/Pods-Top Set.debug.xcconfig"; sourceTree = "<group>"; };
 		9F884373B7A5EFF9981A3321 /* Pods-Top Set.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Top Set.release.xcconfig"; path = "Target Support Files/Pods-Top Set/Pods-Top Set.release.xcconfig"; sourceTree = "<group>"; };
+		CE3464CE2457991D0067A9AA /* OneRepMaxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRepMaxViewController.swift; sourceTree = "<group>"; };
+		CE3464D024579B280067A9AA /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
+		CE3464D224579B370067A9AA /* CommunityFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityFeedViewController.swift; sourceTree = "<group>"; };
+		CE3464D424579B480067A9AA /* PersonalFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalFeedViewController.swift; sourceTree = "<group>"; };
+		CE3464D82457CAA70067A9AA /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		CE3464DA2457D8EE0067A9AA /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
 		CEC7D8E324577E5A00745385 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		CEC7D8E524577E7300745385 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		CEC7D8E724577E8E00745385 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
@@ -73,6 +85,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE3464CD245798F90067A9AA /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				CE3464CE2457991D0067A9AA /* OneRepMaxViewController.swift */,
+				CE3464D024579B280067A9AA /* ProfilePageViewController.swift */,
+				CE3464D224579B370067A9AA /* CommunityFeedViewController.swift */,
+				CE3464D424579B480067A9AA /* PersonalFeedViewController.swift */,
+				CE3464DA2457D8EE0067A9AA /* NewWorkoutViewController.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
 		CEC7D8E224577E4D00745385 /* Model + Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +104,7 @@
 				CEC7D8E524577E7300745385 /* UserService.swift */,
 				CEC7D8E724577E8E00745385 /* ImageService.swift */,
 				CEC7D8E924577EC700745385 /* DateExtension.swift */,
+				CE3464D82457CAA70067A9AA /* Alert.swift */,
 			);
 			path = "Model + Services";
 			sourceTree = "<group>";
@@ -107,6 +132,7 @@
 			children = (
 				CEC7D8E224577E4D00745385 /* Model + Services */,
 				CEF272C824576FB2004FB0D8 /* Auth */,
+				CE3464CD245798F90067A9AA /* Tabs */,
 				CEF272AC2457423F004FB0D8 /* AppDelegate.swift */,
 				CEF272AE2457423F004FB0D8 /* SceneDelegate.swift */,
 				CEF272B22457423F004FB0D8 /* Main.storyboard */,
@@ -244,12 +270,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE3464D524579B480067A9AA /* PersonalFeedViewController.swift in Sources */,
 				CEC7D8E624577E7300745385 /* UserService.swift in Sources */,
 				CEC7D8E824577E8E00745385 /* ImageService.swift in Sources */,
+				CE3464CF2457991D0067A9AA /* OneRepMaxViewController.swift in Sources */,
 				CEF272C324574DC0004FB0D8 /* LoginViewController.swift in Sources */,
+				CE3464D124579B280067A9AA /* ProfilePageViewController.swift in Sources */,
+				CE3464D92457CAA70067A9AA /* Alert.swift in Sources */,
 				CEF272AD2457423F004FB0D8 /* AppDelegate.swift in Sources */,
 				CEC7D8EA24577EC700745385 /* DateExtension.swift in Sources */,
+				CE3464DB2457D8EE0067A9AA /* NewWorkoutViewController.swift in Sources */,
 				CEC7D8E424577E5A00745385 /* UserProfile.swift in Sources */,
+				CE3464D324579B370067A9AA /* CommunityFeedViewController.swift in Sources */,
 				CEF272C5245752A5004FB0D8 /* FlexibleTextField.swift in Sources */,
 				CEF272AF2457423F004FB0D8 /* SceneDelegate.swift in Sources */,
 				CEF272C724576FA3004FB0D8 /* SignUpViewController.swift in Sources */,
