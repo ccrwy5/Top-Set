@@ -393,14 +393,119 @@
         <!--New Workout-->
         <scene sceneID="tUh-2X-l4J">
             <objects>
-                <viewController id="Msu-9Q-49Q" sceneMemberID="viewController">
+                <viewController id="Msu-9Q-49Q" customClass="NewWorkoutViewController" customModule="Top_Set" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GcV-j9-4ag">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Workout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dba-gY-Qt7">
+                                <rect key="frame" x="136.66666666666666" y="84" width="140.99999999999997" height="26.666666666666671"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DMd-P0-HGN" customClass="FlexibleTextField" customModule="Top_Set" customModuleProvider="target">
+                                <rect key="frame" x="45" y="134.66666666666666" width="324" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="HIf-Wm-Ex7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L4N-Ct-1oU">
+                                <rect key="frame" x="0.0" y="317" width="414" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="b2Z-AE-VMN"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exerciseCell" id="r3I-Sa-Swp">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r3I-Sa-Swp" id="STf-Mq-A0H" customClass="ExercisesTableViewCell" customModule="Top_Set" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Msu-9Q-49Q" id="sBj-bu-fct"/>
+                                    <outlet property="delegate" destination="Msu-9Q-49Q" id="3lb-54-m2n"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Riy-gH-762">
+                                <rect key="frame" x="40" y="637" width="334" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hoR-gh-ehE"/>
+                                </constraints>
+                                <state key="normal" title="Post">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="disabled" title="Complete all fields"/>
+                                <connections>
+                                    <action selector="handlePostButton:" destination="Msu-9Q-49Q" eventType="touchUpInside" id="b8D-MU-kQI"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXT-7c-TbJ" customClass="FlexibleTextField" customModule="Top_Set" customModuleProvider="target">
+                                <rect key="frame" x="45" y="203" width="324" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="DKe-By-VEy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1d-PF-c0S">
+                                <rect key="frame" x="0.0" y="273" width="414" height="44"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="aY4-HL-2Vu"/>
+                                    <barButtonItem springLoaded="YES" systemItem="add" id="75S-5A-8Wv">
+                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="addButtonPressed:" destination="Msu-9Q-49Q" id="Mep-Zd-YqE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercises" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkN-aI-aqj">
+                                <rect key="frame" x="171" y="284.66666666666669" width="72.333333333333314" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="NXT-7c-TbJ" firstAttribute="leading" secondItem="4sL-xV-4kz" secondAttribute="leading" constant="45" id="9bR-r7-58d"/>
+                            <constraint firstItem="DMd-P0-HGN" firstAttribute="leading" secondItem="4sL-xV-4kz" secondAttribute="leading" constant="45" id="CAO-U3-jiR"/>
+                            <constraint firstItem="DMd-P0-HGN" firstAttribute="top" secondItem="Dba-gY-Qt7" secondAttribute="bottom" constant="24" id="DZC-RN-li8"/>
+                            <constraint firstItem="4sL-xV-4kz" firstAttribute="trailing" secondItem="L4N-Ct-1oU" secondAttribute="trailing" id="F4J-96-Pdl"/>
+                            <constraint firstItem="X1d-PF-c0S" firstAttribute="top" secondItem="NXT-7c-TbJ" secondAttribute="bottom" constant="30" id="Puz-aT-D9t"/>
+                            <constraint firstItem="L4N-Ct-1oU" firstAttribute="top" secondItem="X1d-PF-c0S" secondAttribute="bottom" id="Qlb-I2-BcX"/>
+                            <constraint firstItem="IkN-aI-aqj" firstAttribute="centerY" secondItem="X1d-PF-c0S" secondAttribute="centerY" id="SXR-Vg-Re5"/>
+                            <constraint firstItem="4sL-xV-4kz" firstAttribute="trailing" secondItem="DMd-P0-HGN" secondAttribute="trailing" constant="45" id="UMI-XB-nu2"/>
+                            <constraint firstItem="X1d-PF-c0S" firstAttribute="trailing" secondItem="4sL-xV-4kz" secondAttribute="trailing" id="UVr-Ne-PZJ"/>
+                            <constraint firstItem="IkN-aI-aqj" firstAttribute="centerX" secondItem="X1d-PF-c0S" secondAttribute="centerX" id="UaB-LN-rg3"/>
+                            <constraint firstItem="4sL-xV-4kz" firstAttribute="trailing" secondItem="Riy-gH-762" secondAttribute="trailing" constant="40" id="cAK-RM-7Q7"/>
+                            <constraint firstItem="Dba-gY-Qt7" firstAttribute="top" secondItem="4sL-xV-4kz" secondAttribute="top" constant="40" id="cOq-Vt-r4M"/>
+                            <constraint firstItem="L4N-Ct-1oU" firstAttribute="leading" secondItem="4sL-xV-4kz" secondAttribute="leading" id="gBH-qr-geA"/>
+                            <constraint firstItem="4sL-xV-4kz" firstAttribute="trailing" secondItem="NXT-7c-TbJ" secondAttribute="trailing" constant="45" id="gyD-Iu-nuw"/>
+                            <constraint firstItem="Riy-gH-762" firstAttribute="leading" secondItem="4sL-xV-4kz" secondAttribute="leading" constant="40" id="nt5-uy-Ceu"/>
+                            <constraint firstItem="X1d-PF-c0S" firstAttribute="leading" secondItem="4sL-xV-4kz" secondAttribute="leading" id="oIn-J3-2CU"/>
+                            <constraint firstItem="Riy-gH-762" firstAttribute="top" secondItem="L4N-Ct-1oU" secondAttribute="bottom" constant="20" id="q7p-qY-Df9"/>
+                            <constraint firstItem="NXT-7c-TbJ" firstAttribute="top" secondItem="DMd-P0-HGN" secondAttribute="bottom" constant="28.333333333333343" id="uzr-9g-SGa"/>
+                            <constraint firstItem="Dba-gY-Qt7" firstAttribute="centerX" secondItem="GcV-j9-4ag" secondAttribute="centerX" id="zlv-kb-2G0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4sL-xV-4kz"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="New Workout" image="plus.circle" catalog="system" id="cSj-a3-cJf"/>
+                    <connections>
+                        <outlet property="dateTextField" destination="NXT-7c-TbJ" id="5iV-UK-EQ3"/>
+                        <outlet property="exercisesTableView" destination="L4N-Ct-1oU" id="6Ah-7S-Rnv"/>
+                        <outlet property="postButton" destination="Riy-gH-762" id="LvS-fl-er0"/>
+                        <outlet property="titleTextField" destination="DMd-P0-HGN" id="Y4l-pY-agt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QfZ-MS-9ro" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

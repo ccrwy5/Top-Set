@@ -80,6 +80,8 @@ class OneRepMaxViewController: UIViewController, UITextFieldDelegate {
         bottomLine2.backgroundColor = UIColor.systemGreen.cgColor
         repsTextField.borderStyle = UITextField.BorderStyle.none
         repsTextField.layer.addSublayer(bottomLine2)
+        
+        calculateButton.layer.cornerRadius = 10
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
