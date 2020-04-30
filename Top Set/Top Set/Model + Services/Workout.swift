@@ -20,17 +20,17 @@ class Workout {
     }
 }
 
-class Exercise {
-    var id: String?
-    var exerciseName: String?
-    var reps: Int?
-    var sets: Int?
-    
-    init(id: String?, exerciseName: String?, reps: Int?, sets: Int?) {
-        self.id = id
-        self.exerciseName = exerciseName
-        self.reps = reps
-        self.sets = sets
-        
-    }
-}
+//class Exercise {
+//    var id: String?
+//    var exerciseName: String?
+//    var reps: Int?
+//    var sets: Int?
+//    
+//    init(id: String?, exerciseName: String?, reps: Int?, sets: Int?) {
+//        self.id = id
+//        self.exerciseName = exerciseName
+//        self.reps = reps
+//        self.sets = sets
+//        
+//    }
+//}

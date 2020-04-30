@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 
+
+
+
 class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
     
@@ -18,17 +21,20 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UITableVi
     let dateFormatter = DateFormatter()
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var exercisesTableView: UITableView!
+    @IBOutlet weak var toolbar: UIToolbar!
     
     let postRef = Database.database().reference().child("posts").childByAutoId()
-        
-//    let twoDimensionalArray = [
-//        ["Bench Press", "Squat", "Deadlift", "Overhead Press"],
-//        ["Set 1", "Set 2", "Set 3", "Set 4"],
-//        ["Mike", "Matt"]
-//    ]
+    
+    /*
+     let exercises = [
+    
+     ]
+     */
+    var exercises = [String]()
+    //var sets = ["one", "two"]
+    var twoDimensionalArray = [[String]]()
     
     
-    var exercises = ["Bench Press", "Squat", "Deadlift", "Overhead Press"]
     
     var headers = [String]()
     
@@ -59,8 +65,21 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UITableVi
         let alert = UIAlertController(title: "Add Exercise", message: "", preferredStyle: UIAlertController.Style.alert)
         let addAction = UIAlertAction(title: "Add", style: .default){(_) in
             let exerciseName = alert.textFields?[0].text
+            let sets = Int((alert.textFields?[1].text)!)
+            print(sets)
+            
 
             self.exercises.append(exerciseName!)
+
+            
+            var newArray = [String]()
+            for _ in 1...sets! {
+                newArray.append("new element")
+            }
+            self.twoDimensionalArray.append(newArray)
+            print(self.twoDimensionalArray)
+            
+
             self.exercisesTableView.insertSections(IndexSet(integer: self.exercises.count - 1), with: .right)
             print(self.exercises)
         }
@@ -68,6 +87,9 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UITableVi
 
         alert.addTextField { (textField) in
             textField.placeholder = "Exercise name"
+        }
+        alert.addTextField { (textField) in
+            textField.placeholder = "Sets"
         }
 
         
@@ -179,6 +201,7 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UITableVi
         dateTextField.layer.addSublayer(dateButtonLine)
         
         postButton.layer.cornerRadius = 10
+        toolbar.backgroundColor = UIColor.systemGray
     }
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -187,29 +210,33 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        //return twoDimensionalArray[section].count
-        return 1
+            return twoDimensionalArray[section].count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = exercisesTableView.dequeueReusableCell(withIdentifier: "exerciseCell", for: indexPath)
-        
-//        let name = twoDimensionalArray[indexPath.section][indexPath.row]
-//        cell.textLabel?.text = "\(name) Section: \(indexPath.section) Row: \(indexPath.row)"
+        let cell = exercisesTableView.dequeueReusableCell(withIdentifier: "exerciseCell", for: indexPath) as! ExercisesTableViewCell
+    
+        cell.setLabel.text = "Set \(indexPath.row + 1)"
         return cell
     }
     
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        //return twoDimensionalArray.count
-        //return twoDimensionalArray[0].count
         return exercises.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let label = UILabel()
-        label.text = exercises[section]
-        label.backgroundColor = UIColor.lightGray
+        label.text = "\t\(exercises[section])"
+        label.backgroundColor = UIColor.systemGray4
         return label
     }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
 }
+
+

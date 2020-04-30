@@ -419,13 +419,74 @@
                                     <constraint firstAttribute="height" constant="300" id="b2Z-AE-VMN"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exerciseCell" id="r3I-Sa-Swp">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exerciseCell" id="r3I-Sa-Swp" customClass="ExercisesTableViewCell" customModule="Top_Set" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="54.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r3I-Sa-Swp" id="STf-Mq-A0H" customClass="ExercisesTableViewCell" customModule="Top_Set" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r3I-Sa-Swp" id="STf-Mq-A0H">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="54.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYX-XY-OBr">
+                                                    <rect key="frame" x="40" y="18.333333333333332" width="36.333333333333343" height="17.999999999999996"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Weight" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tHe-ET-mx7" customClass="FlexibleTextField" customModule="Top_Set" customModuleProvider="target">
+                                                    <rect key="frame" x="126.33333333333331" y="10" width="60" height="34.333333333333336"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="mHc-6R-OQE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhm-Ge-ZhV">
+                                                    <rect key="frame" x="194.33333333333334" y="18.333333333333332" width="10" height="17.999999999999996"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reps" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YiR-Rc-IYu" customClass="FlexibleTextField" customModule="Top_Set" customModuleProvider="target">
+                                                    <rect key="frame" x="212.33333333333334" y="10" width="60.000000000000028" height="34.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ycr-Vr-PBH">
+                                                    <rect key="frame" x="329" y="10.666666666666664" width="45" height="33"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                                    <state key="normal" title="Clear">
+                                                        <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="addSetClicked:" destination="r3I-Sa-Swp" eventType="touchUpInside" id="v5g-Na-YDj"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YiR-Rc-IYu" firstAttribute="leading" secondItem="mhm-Ge-ZhV" secondAttribute="trailing" constant="8" id="0Oo-As-Qee"/>
+                                                <constraint firstItem="YiR-Rc-IYu" firstAttribute="height" secondItem="tHe-ET-mx7" secondAttribute="height" id="2dQ-iY-vvv"/>
+                                                <constraint firstItem="pYX-XY-OBr" firstAttribute="leading" secondItem="STf-Mq-A0H" secondAttribute="leading" constant="40" id="8vp-bD-OPf"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ycr-Vr-PBH" secondAttribute="trailing" constant="40" id="Bdc-7k-J3n"/>
+                                                <constraint firstItem="Ycr-Vr-PBH" firstAttribute="centerY" secondItem="STf-Mq-A0H" secondAttribute="centerY" id="LK1-xv-gSR"/>
+                                                <constraint firstItem="tHe-ET-mx7" firstAttribute="top" secondItem="STf-Mq-A0H" secondAttribute="top" constant="10" id="Num-BT-eoN"/>
+                                                <constraint firstAttribute="bottom" secondItem="tHe-ET-mx7" secondAttribute="bottom" constant="10" id="Pf2-Bc-p2z"/>
+                                                <constraint firstAttribute="bottom" secondItem="YiR-Rc-IYu" secondAttribute="bottom" constant="10" id="YXP-3b-tNA"/>
+                                                <constraint firstItem="mhm-Ge-ZhV" firstAttribute="centerY" secondItem="STf-Mq-A0H" secondAttribute="centerY" id="ggv-vQ-Zg4"/>
+                                                <constraint firstItem="pYX-XY-OBr" firstAttribute="centerY" secondItem="STf-Mq-A0H" secondAttribute="centerY" id="gj7-Oz-eJb"/>
+                                                <constraint firstItem="YiR-Rc-IYu" firstAttribute="top" secondItem="STf-Mq-A0H" secondAttribute="top" constant="10" id="iuZ-FM-DCO"/>
+                                                <constraint firstItem="YiR-Rc-IYu" firstAttribute="centerY" secondItem="STf-Mq-A0H" secondAttribute="centerY" id="jZR-YJ-fHL"/>
+                                                <constraint firstItem="YiR-Rc-IYu" firstAttribute="width" secondItem="tHe-ET-mx7" secondAttribute="width" id="nX0-uc-sre"/>
+                                                <constraint firstItem="mhm-Ge-ZhV" firstAttribute="leading" secondItem="tHe-ET-mx7" secondAttribute="trailing" constant="8" id="oYo-go-xAA"/>
+                                                <constraint firstItem="tHe-ET-mx7" firstAttribute="leading" secondItem="pYX-XY-OBr" secondAttribute="trailing" constant="50" id="x23-tb-O9g"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="addSetButton" destination="Ycr-Vr-PBH" id="RQg-xF-HHP"/>
+                                            <outlet property="repsTextField" destination="YiR-Rc-IYu" id="rQJ-wc-wPB"/>
+                                            <outlet property="setLabel" destination="pYX-XY-OBr" id="AIL-7n-Lbe"/>
+                                            <outlet property="weightTextField" destination="tHe-ET-mx7" id="c2s-2J-gcN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -457,7 +518,7 @@
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1d-PF-c0S">
                                 <rect key="frame" x="0.0" y="273" width="414" height="44"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="aY4-HL-2Vu"/>
                                     <barButtonItem springLoaded="YES" systemItem="add" id="75S-5A-8Wv">
@@ -505,11 +566,12 @@
                         <outlet property="exercisesTableView" destination="L4N-Ct-1oU" id="6Ah-7S-Rnv"/>
                         <outlet property="postButton" destination="Riy-gH-762" id="LvS-fl-er0"/>
                         <outlet property="titleTextField" destination="DMd-P0-HGN" id="Y4l-pY-agt"/>
+                        <outlet property="toolbar" destination="X1d-PF-c0S" id="8Fu-Rh-7FZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QfZ-MS-9ro" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5548" y="227"/>
+            <point key="canvasLocation" x="5547.826086956522" y="226.33928571428569"/>
         </scene>
         <!--Feed-->
         <scene sceneID="fcj-sg-8bI">
