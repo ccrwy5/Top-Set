@@ -10,21 +10,15 @@ import Foundation
 
 public struct Exercise {
     var name: String
-    var sets: [Sets]
+    var numberOfSets: Int
+    var weightAndReps: [Int: [Int:Int]] // [# of Sets: [Weight:Reps]]
 
     
-    public init(name: String, sets: [Sets]) {
+    public init(name: String, numberOfSets: Int, weightAndReps: [Int:[Int:Int]]) {
         self.name = name
-        self.sets = sets
+        self.numberOfSets = numberOfSets
+        self.weightAndReps = weightAndReps
     }
 }
 
-public struct Sets {
-    var weight: Int
-    var reps: Int
-    
-    public init(weight: Int, reps: Int){
-        self.weight = weight
-        self.reps = reps
-    }
-}
+

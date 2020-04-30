@@ -420,72 +420,72 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exerciseCell" id="r3I-Sa-Swp" customClass="ExercisesTableViewCell" customModule="Top_Set" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="54.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r3I-Sa-Swp" id="STf-Mq-A0H">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="54.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYX-XY-OBr">
-                                                    <rect key="frame" x="40" y="18.333333333333332" width="36.333333333333343" height="17.999999999999996"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYX-XY-OBr">
+                                                    <rect key="frame" x="25" y="12.999999999999998" width="10" height="18.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Weight" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tHe-ET-mx7" customClass="FlexibleTextField" customModule="Top_Set" customModuleProvider="target">
-                                                    <rect key="frame" x="126.33333333333331" y="10" width="60" height="34.333333333333336"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="mHc-6R-OQE"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhm-Ge-ZhV">
-                                                    <rect key="frame" x="194.33333333333334" y="18.333333333333332" width="10" height="17.999999999999996"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reps" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YiR-Rc-IYu" customClass="FlexibleTextField" customModule="Top_Set" customModuleProvider="target">
-                                                    <rect key="frame" x="212.33333333333334" y="10" width="60.000000000000028" height="34.333333333333336"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                                <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ycr-Vr-PBH">
-                                                    <rect key="frame" x="329" y="10.666666666666664" width="45" height="33"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNZ-zb-hHB">
+                                                    <rect key="frame" x="44.999999999999993" y="11.666666666666664" width="124.33333333333331" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                                                    <state key="normal" title="Clear">
-                                                        <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="addSetClicked:" destination="r3I-Sa-Swp" eventType="touchUpInside" id="v5g-Na-YDj"/>
-                                                    </connections>
-                                                </button>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVt-4l-rj3">
+                                                    <rect key="frame" x="281.33333333333331" y="16.666666666666668" width="7" height="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Sets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orv-cX-nX8">
+                                                    <rect key="frame" x="239.33333333333337" y="11.666666666666664" width="37" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqD-L0-tNK">
+                                                    <rect key="frame" x="293.33333333333331" y="11.666666666666664" width="41" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(RPE)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmb-Dy-FWp">
+                                                    <rect key="frame" x="342.33333333333331" y="11.666666666666664" width="46.666666666666686" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="YiR-Rc-IYu" firstAttribute="leading" secondItem="mhm-Ge-ZhV" secondAttribute="trailing" constant="8" id="0Oo-As-Qee"/>
-                                                <constraint firstItem="YiR-Rc-IYu" firstAttribute="height" secondItem="tHe-ET-mx7" secondAttribute="height" id="2dQ-iY-vvv"/>
-                                                <constraint firstItem="pYX-XY-OBr" firstAttribute="leading" secondItem="STf-Mq-A0H" secondAttribute="leading" constant="40" id="8vp-bD-OPf"/>
-                                                <constraint firstAttribute="trailing" secondItem="Ycr-Vr-PBH" secondAttribute="trailing" constant="40" id="Bdc-7k-J3n"/>
-                                                <constraint firstItem="Ycr-Vr-PBH" firstAttribute="centerY" secondItem="STf-Mq-A0H" secondAttribute="centerY" id="LK1-xv-gSR"/>
-                                                <constraint firstItem="tHe-ET-mx7" firstAttribute="top" secondItem="STf-Mq-A0H" secondAttribute="top" constant="10" id="Num-BT-eoN"/>
-                                                <constraint firstAttribute="bottom" secondItem="tHe-ET-mx7" secondAttribute="bottom" constant="10" id="Pf2-Bc-p2z"/>
-                                                <constraint firstAttribute="bottom" secondItem="YiR-Rc-IYu" secondAttribute="bottom" constant="10" id="YXP-3b-tNA"/>
-                                                <constraint firstItem="mhm-Ge-ZhV" firstAttribute="centerY" secondItem="STf-Mq-A0H" secondAttribute="centerY" id="ggv-vQ-Zg4"/>
+                                                <constraint firstItem="Pmb-Dy-FWp" firstAttribute="leading" secondItem="qqD-L0-tNK" secondAttribute="trailing" constant="8" id="519-hq-Y2d"/>
+                                                <constraint firstAttribute="trailing" secondItem="Pmb-Dy-FWp" secondAttribute="trailing" constant="25" id="74l-ep-lSG"/>
+                                                <constraint firstItem="pYX-XY-OBr" firstAttribute="leading" secondItem="STf-Mq-A0H" secondAttribute="leading" constant="25" id="8vp-bD-OPf"/>
+                                                <constraint firstItem="Orv-cX-nX8" firstAttribute="centerY" secondItem="STf-Mq-A0H" secondAttribute="centerY" id="Oc2-un-jbC"/>
+                                                <constraint firstItem="pYX-XY-OBr" firstAttribute="top" secondItem="STf-Mq-A0H" secondAttribute="topMargin" constant="2" id="Plq-qA-MDi"/>
+                                                <constraint firstItem="Pmb-Dy-FWp" firstAttribute="centerY" secondItem="STf-Mq-A0H" secondAttribute="centerY" id="SdT-cy-ced"/>
+                                                <constraint firstItem="gNZ-zb-hHB" firstAttribute="centerY" secondItem="STf-Mq-A0H" secondAttribute="centerY" id="Xro-XJ-Dgg"/>
+                                                <constraint firstItem="gVt-4l-rj3" firstAttribute="centerY" secondItem="STf-Mq-A0H" secondAttribute="centerY" id="aCe-cU-jwp"/>
+                                                <constraint firstItem="gVt-4l-rj3" firstAttribute="leading" secondItem="Orv-cX-nX8" secondAttribute="trailing" constant="5" id="brg-XR-oOb"/>
                                                 <constraint firstItem="pYX-XY-OBr" firstAttribute="centerY" secondItem="STf-Mq-A0H" secondAttribute="centerY" id="gj7-Oz-eJb"/>
-                                                <constraint firstItem="YiR-Rc-IYu" firstAttribute="top" secondItem="STf-Mq-A0H" secondAttribute="top" constant="10" id="iuZ-FM-DCO"/>
-                                                <constraint firstItem="YiR-Rc-IYu" firstAttribute="centerY" secondItem="STf-Mq-A0H" secondAttribute="centerY" id="jZR-YJ-fHL"/>
-                                                <constraint firstItem="YiR-Rc-IYu" firstAttribute="width" secondItem="tHe-ET-mx7" secondAttribute="width" id="nX0-uc-sre"/>
-                                                <constraint firstItem="mhm-Ge-ZhV" firstAttribute="leading" secondItem="tHe-ET-mx7" secondAttribute="trailing" constant="8" id="oYo-go-xAA"/>
-                                                <constraint firstItem="tHe-ET-mx7" firstAttribute="leading" secondItem="pYX-XY-OBr" secondAttribute="trailing" constant="50" id="x23-tb-O9g"/>
+                                                <constraint firstItem="gNZ-zb-hHB" firstAttribute="leading" secondItem="pYX-XY-OBr" secondAttribute="trailing" constant="10" id="hPv-Gg-UGu"/>
+                                                <constraint firstItem="qqD-L0-tNK" firstAttribute="centerY" secondItem="STf-Mq-A0H" secondAttribute="centerY" id="hwC-0Q-KZX"/>
+                                                <constraint firstItem="qqD-L0-tNK" firstAttribute="leading" secondItem="gVt-4l-rj3" secondAttribute="trailing" constant="5" id="qas-B6-axK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="addSetButton" destination="Ycr-Vr-PBH" id="RQg-xF-HHP"/>
-                                            <outlet property="repsTextField" destination="YiR-Rc-IYu" id="rQJ-wc-wPB"/>
+                                            <outlet property="RPELabel" destination="Pmb-Dy-FWp" id="OnD-tU-RjV"/>
+                                            <outlet property="exerciseNameLabel" destination="gNZ-zb-hHB" id="PT6-0g-2wp"/>
+                                            <outlet property="repsLabel" destination="qqD-L0-tNK" id="Wfe-P8-ydc"/>
                                             <outlet property="setLabel" destination="pYX-XY-OBr" id="AIL-7n-Lbe"/>
-                                            <outlet property="weightTextField" destination="tHe-ET-mx7" id="c2s-2J-gcN"/>
+                                            <outlet property="setsLabel" destination="Orv-cX-nX8" id="0Ok-4b-cOK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -561,6 +561,8 @@
                         <viewLayoutGuide key="safeArea" id="4sL-xV-4kz"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="New Workout" image="plus.circle" catalog="system" id="cSj-a3-cJf"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dateTextField" destination="NXT-7c-TbJ" id="5iV-UK-EQ3"/>
                         <outlet property="exercisesTableView" destination="L4N-Ct-1oU" id="6Ah-7S-Rnv"/>
