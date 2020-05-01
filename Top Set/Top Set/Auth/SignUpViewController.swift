@@ -73,6 +73,11 @@ class SignUpViewController: UIViewController {
         emailTextField.layer.addSublayer(bottomLine4)
 
         signUpButton.layer.cornerRadius = 10
+        
+        emailTextField.attributedPlaceholder = NSAttributedString(string:"Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        fullNameTextField.attributedPlaceholder = NSAttributedString(string:"Full Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        usernameTextField.attributedPlaceholder = NSAttributedString(string:"Username", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
     @objc func openImagePicker(_ sender:Any) {
@@ -85,6 +90,47 @@ class SignUpViewController: UIViewController {
         guard let username = usernameTextField.text else { return }
         guard let email = emailTextField.text else { return }
         guard let pass = passwordTextField.text else { return }
+        
+        if image == UIImage(named: "defaultUser_small.png") || image == UIImage(named: "defaultUser"){
+            let alertController = UIAlertController(title: "Error", message: "Custom picture is required", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+                       
+            return
+        }
+        
+        if fullNameTextField.text!.isEmpty {
+            let alertController = UIAlertController(title: "Error", message:
+                "Full name is required", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+        }
+        
+        if usernameTextField.text!.isEmpty {
+            let alertController = UIAlertController(title: "Error", message:
+                "Username is required", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+        }
+        
+        if emailTextField.text!.isEmpty {
+            let alertController = UIAlertController(title: "Error", message:
+                "Email is required", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+        }
+        
+        
+        
         
         Auth.auth().createUser(withEmail: email, password: pass) { user, error in
             if error == nil && user != nil {
@@ -112,6 +158,11 @@ class SignUpViewController: UIViewController {
                                 
                             } else {
                                 print("Error: \(error!.localizedDescription)")
+                                let alertController = UIAlertController(title: "Error", message:
+                                    error!.localizedDescription, preferredStyle: .alert)
+                                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+                                self.present(alertController, animated: true, completion: nil)
                             }
                         }
                     } else {
@@ -122,6 +173,11 @@ class SignUpViewController: UIViewController {
                 
             } else {
                 print("Error: \(error!.localizedDescription)")
+                let alertController = UIAlertController(title: "Error", message:
+                    error?.localizedDescription, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+                self.present(alertController, animated: true, completion: nil)
             }
         }
     

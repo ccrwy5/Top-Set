@@ -53,6 +53,11 @@ class LoginViewController: UIViewController {
                 self.dismiss(animated: false, completion: nil)
             } else {
                 print("Error logging in: \(error!.localizedDescription)")
+                let alertController = UIAlertController(title: "Error Logging In", message:
+                    error!.localizedDescription, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+                self.present(alertController, animated: true, completion: nil)
             }
         }
     }
@@ -78,6 +83,10 @@ class LoginViewController: UIViewController {
         emailTextField.layer.addSublayer(bottomLine2)
         
         loginButton.layer.cornerRadius = 10
+        
+        emailTextField.attributedPlaceholder = NSAttributedString(string:"Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string:"Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+
     }
     
 
