@@ -42,7 +42,7 @@ class CommunityFeedViewController: UIViewController, UITableViewDelegate, UITabl
 
                     self.workoutsList.append(workout)
 
-                    print(self.workoutsList)
+                    //print(self.workoutsList)
                     
                 }
                 self.workoutsList = self.workoutsList.reversed()

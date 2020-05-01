@@ -1,5 +1,5 @@
 //
-//  PersonalTableViewCell.swift
+//  GoalTableViewCell.swift
 //  Top Set
 //
 //  Created by Chris Rehagen on 5/1/20.
@@ -8,13 +8,9 @@
 
 import UIKit
 
-class PersonalTableViewCell: UITableViewCell {
+class GoalTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var bodyPartLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
-    
+    @IBOutlet weak var goalTitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

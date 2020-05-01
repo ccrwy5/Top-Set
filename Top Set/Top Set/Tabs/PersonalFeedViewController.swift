@@ -44,7 +44,7 @@ class PersonalFeedViewController: UIViewController, UITableViewDelegate, UITable
 
                     self.personalWorkoutsList.append(workout)
 
-                    print(self.personalWorkoutsList)
+                    //print(self.personalWorkoutsList)
                     
                 }
                 self.personalWorkoutsList = self.personalWorkoutsList.reversed()
@@ -107,7 +107,7 @@ class PersonalFeedViewController: UIViewController, UITableViewDelegate, UITable
             indivWorkout.observeSingleEvent(of: .value) { (snapshot) in
                 let dict = snapshot.value as! [String: Any]
                 mainID = dict["main_feed_id"] as! String
-                print("MainID: \(mainID)")
+                //print("MainID: \(mainID)")
                 let feedDeleteRef = Database.database().reference().child("posts").child(mainID)
                 print("feedDeleteRef = \(feedDeleteRef)")
                             
@@ -158,11 +158,6 @@ class PersonalFeedViewController: UIViewController, UITableViewDelegate, UITable
             
         }
         updateSwipe.backgroundColor = UIColor(red: 0/255, green: 173/255, blue: 242/255, alpha: 1.0)
-        
-        
-        
-        
-        
         
         /* Add Actions */
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteSwipe, updateSwipe])

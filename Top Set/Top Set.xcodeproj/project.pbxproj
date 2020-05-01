@@ -10,6 +10,7 @@
 		CE2F287C245B857D0002F841 /* TextViewAutoHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F287B245B857D0002F841 /* TextViewAutoHeight.swift */; };
 		CE2F287E245B97F00002F841 /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F287D245B97F00002F841 /* CommunityTableViewCell.swift */; };
 		CE2F2880245C83190002F841 /* PersonalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F287F245C83190002F841 /* PersonalTableViewCell.swift */; };
+		CE2F2882245C94DF0002F841 /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F2881245C94DF0002F841 /* GoalTableViewCell.swift */; };
 		CE3464CF2457991D0067A9AA /* OneRepMaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464CE2457991D0067A9AA /* OneRepMaxViewController.swift */; };
 		CE3464D124579B280067A9AA /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464D024579B280067A9AA /* ProfilePageViewController.swift */; };
 		CE3464D324579B370067A9AA /* CommunityFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464D224579B370067A9AA /* CommunityFeedViewController.swift */; };
@@ -17,7 +18,7 @@
 		CE3464D92457CAA70067A9AA /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464D82457CAA70067A9AA /* Alert.swift */; };
 		CE3464DB2457D8EE0067A9AA /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464DA2457D8EE0067A9AA /* NewWorkoutViewController.swift */; };
 		CE3464DD2457DCFC0067A9AA /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464DC2457DCFC0067A9AA /* Workout.swift */; };
-		CEAD7A9B245A4C8A005DA1B7 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD7A9A245A4C8A005DA1B7 /* Exercise.swift */; };
+		CEAD7A9B245A4C8A005DA1B7 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD7A9A245A4C8A005DA1B7 /* Goal.swift */; };
 		CEC7D8E424577E5A00745385 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7D8E324577E5A00745385 /* UserProfile.swift */; };
 		CEC7D8E624577E7300745385 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7D8E524577E7300745385 /* UserService.swift */; };
 		CEC7D8E824577E8E00745385 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7D8E724577E8E00745385 /* ImageService.swift */; };
@@ -40,6 +41,7 @@
 		CE2F287B245B857D0002F841 /* TextViewAutoHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewAutoHeight.swift; sourceTree = "<group>"; };
 		CE2F287D245B97F00002F841 /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
 		CE2F287F245C83190002F841 /* PersonalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalTableViewCell.swift; sourceTree = "<group>"; };
+		CE2F2881245C94DF0002F841 /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
 		CE3464CE2457991D0067A9AA /* OneRepMaxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRepMaxViewController.swift; sourceTree = "<group>"; };
 		CE3464D024579B280067A9AA /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		CE3464D224579B370067A9AA /* CommunityFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityFeedViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +49,7 @@
 		CE3464D82457CAA70067A9AA /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		CE3464DA2457D8EE0067A9AA /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
 		CE3464DC2457DCFC0067A9AA /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
-		CEAD7A9A245A4C8A005DA1B7 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		CEAD7A9A245A4C8A005DA1B7 /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		CEC7D8E324577E5A00745385 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		CEC7D8E524577E7300745385 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		CEC7D8E724577E8E00745385 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				CE2F287D245B97F00002F841 /* CommunityTableViewCell.swift */,
 				CE2F287F245C83190002F841 /* PersonalTableViewCell.swift */,
+				CE2F2881245C94DF0002F841 /* GoalTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -123,7 +126,7 @@
 				CEC7D8E924577EC700745385 /* DateExtension.swift */,
 				CE3464D82457CAA70067A9AA /* Alert.swift */,
 				CE3464DC2457DCFC0067A9AA /* Workout.swift */,
-				CEAD7A9A245A4C8A005DA1B7 /* Exercise.swift */,
+				CEAD7A9A245A4C8A005DA1B7 /* Goal.swift */,
 			);
 			path = "Model + Services";
 			sourceTree = "<group>";
@@ -298,8 +301,9 @@
 				CE2F287C245B857D0002F841 /* TextViewAutoHeight.swift in Sources */,
 				CEF272C324574DC0004FB0D8 /* LoginViewController.swift in Sources */,
 				CE3464D124579B280067A9AA /* ProfilePageViewController.swift in Sources */,
+				CE2F2882245C94DF0002F841 /* GoalTableViewCell.swift in Sources */,
 				CE3464D92457CAA70067A9AA /* Alert.swift in Sources */,
-				CEAD7A9B245A4C8A005DA1B7 /* Exercise.swift in Sources */,
+				CEAD7A9B245A4C8A005DA1B7 /* Goal.swift in Sources */,
 				CE2F2880245C83190002F841 /* PersonalTableViewCell.swift in Sources */,
 				CEF272AD2457423F004FB0D8 /* AppDelegate.swift in Sources */,
 				CEC7D8EA24577EC700745385 /* DateExtension.swift in Sources */,
