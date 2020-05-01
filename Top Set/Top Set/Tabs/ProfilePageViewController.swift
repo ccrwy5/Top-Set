@@ -54,8 +54,11 @@ class ProfilePageViewController: UIViewController, UITableViewDelegate, UITableV
         
         profileImageView.layer.cornerRadius = profileImageView.bounds.height / 2
         profileImageView.clipsToBounds = true
-        let currentUserImage = Auth.auth().currentUser?.photoURL
-        self.profileImageView.load(url: currentUserImage!)
+        if let currentUserImage = Auth.auth().currentUser?.photoURL {
+            self.profileImageView.load(url: currentUserImage)
+        } else {
+            self.profileImageView.image = #imageLiteral(resourceName: "defaultUser")
+        }
                 
     }
     

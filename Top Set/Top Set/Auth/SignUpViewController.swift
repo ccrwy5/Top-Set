@@ -85,19 +85,25 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func handleSignUp(){
-        guard let image = profileImageView.image else { return }
+//        guard let image = profileImageView.image else { return }
+        let image: UIImage
         guard let fullName = fullNameTextField.text else { return }
         guard let username = usernameTextField.text else { return }
         guard let email = emailTextField.text else { return }
         guard let pass = passwordTextField.text else { return }
         
-        if image == UIImage(named: "defaultUser_small.png") || image == UIImage(named: "defaultUser"){
-            let alertController = UIAlertController(title: "Error", message: "Custom picture is required", preferredStyle: .alert)
+
+        
+        if profileImageView.image == nil {
+            let alertController = UIAlertController(title: "Error 2", message: "Custom picture is required", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
             self.present(alertController, animated: true, completion: nil)
                        
             return
+        } else {
+            image = profileImageView.image!
         }
+        
         
         if fullNameTextField.text!.isEmpty {
             let alertController = UIAlertController(title: "Error", message:
