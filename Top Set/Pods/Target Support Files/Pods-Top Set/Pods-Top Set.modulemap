@@ -1,0 +1,6 @@
+framework module Pods_Top_Set {
+  umbrella header "Pods-Top Set-umbrella.h"
+
+  export *
+  module * { export * }
+}
