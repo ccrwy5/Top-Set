@@ -12,41 +12,64 @@ import Firebase
 class ProfilePageViewController: UIViewController {
 
     @IBOutlet weak var logOutButton: UIButton!
-
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    
     var listingsList = [Workout]()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadCurrentProfileInfo()
+        setupUI()
 
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
-        try! Auth.auth().signOut()
+        
+        let alert = UIAlertController(title: "Log Out", message: "Are you sure you would like to log out?", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
+            try! Auth.auth().signOut()
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
+
+        
+        
     }
     
-//    func populateWorkouts(){
-//        let currentUser = (Auth.auth().currentUser?.uid)!
-//        let personalRef = Database.database().reference().child("users").child("profile").child(currentUser).child("User's Workouts")
-//
-//        personalRef.observe(.value, with: {(snapshot) in
-//            if snapshot.childrenCount > 0 {
-//                self.listingsList.removeAll()
-//
-//                for listing in snapshot.children.allObjects as! [DataSnapshot] {
-//                    let listingObject = listing.value as? [String:AnyObject]
-//                    let title = listingObject?["bookTitle"]
-//                    let author = listingObject?["bookAuthor"]
-//                    let id = listingObject?["id"]
-//                    let price = listingObject?["price"]
-//
-//                    let workout = Workout(id: id, title: title, exercises: <#T##[Exercise]#>)
-//
-//                    self.listingsList.append(artist)
-//                }
-//                self.listTableView.reloadData()
-//            }
-//        })
-//    }
+    func loadCurrentProfileInfo(){
+        let currentUser = Auth.auth().currentUser?.displayName
+        
+        userNameLabel.text = currentUser
+        
+        profileImageView.layer.cornerRadius = profileImageView.bounds.height / 2
+        profileImageView.clipsToBounds = true
+        let currentUserImage = Auth.auth().currentUser?.photoURL
+        self.profileImageView.load(url: currentUserImage!)
+                
+    }
     
+    func setupUI(){
+        profileImageView.layer.cornerRadius = profileImageView.bounds.height / 2
+        logOutButton.layer.cornerRadius = 10
+    }
+    
+
+    
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
 }
