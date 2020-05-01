@@ -9,28 +9,19 @@
 import Foundation
 
 class Workout {
-    var id: String?
-    var title: String?
-    var exercises: [Exercise]
+    var id: String
+    var title: String
+    var date: String
+    var bodyPart: String
+    var details: String
     
-    init(id: String?, title: String?, exercises: [Exercise]) {
+    init(id: String, title: String, date: String, details: String, bodyPart: String) {
         self.id = id
         self.title = title
-        self.exercises = exercises
+        self.date = date
+        self.details = details
+        self.bodyPart = bodyPart
     }
 }
 
-//class Exercise {
-//    var id: String?
-//    var exerciseName: String?
-//    var reps: Int?
-//    var sets: Int?
-//    
-//    init(id: String?, exerciseName: String?, reps: Int?, sets: Int?) {
-//        self.id = id
-//        self.exerciseName = exerciseName
-//        self.reps = reps
-//        self.sets = sets
-//        
-//    }
-//}
+

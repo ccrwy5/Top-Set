@@ -7,14 +7,77 @@
 //
 
 import UIKit
+import Firebase
 
-class CommunityFeedViewController: UIViewController {
+class CommunityFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    var mainRef: DatabaseReference!
+    var workouts = [Workout]()
+    var workoutsList = [Workout]()
+
+    @IBOutlet weak var communityFeedTableView: UITableView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
 
-        // Do any additional setup after loading the view.
     }
+    
+
+    
+    func loadData(){
+        mainRef = Database.database().reference().child("posts")
+        
+        mainRef.observe(.value, with: {(snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.workoutsList.removeAll()
+                
+                for workouts in snapshot.children.allObjects as! [DataSnapshot] {
+
+                    let workoutObj = workouts.value as? [String:AnyObject]
+                    let details = workoutObj?["details"]
+                    let date = workoutObj?["workoutDate"]
+                    let title = workoutObj?["title"]
+                    let postID = workoutObj?["postID"]
+                    let bodyPart = workoutObj?["bodyPart"]
+
+                    let workout = Workout(id: postID as! String, title: title as! String, date: date as! String, details: details as! String, bodyPart: bodyPart as! String)
+
+                    self.workoutsList.append(workout)
+                    print(self.workoutsList)
+                    
+                }
+                
+                self.communityFeedTableView.reloadData()
+            }
+        })
+
+
+
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return workoutsList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "communityCell", for: indexPath) as! CommunityTableViewCell
+        
+        let workout: Workout
+        workout = workoutsList[indexPath.row]
+        cell.titleLabel.text = workout.title
+        cell.bodyPartLabel.text = workout.bodyPart
+        cell.dateLabel.text = workout.date
+        cell.descriptionCell.text = workout.details
+        
+        return cell
+    }
+    
+    
+    
+
     
 
     

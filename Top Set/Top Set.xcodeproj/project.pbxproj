@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2F287C245B857D0002F841 /* TextViewAutoHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F287B245B857D0002F841 /* TextViewAutoHeight.swift */; };
+		CE2F287E245B97F00002F841 /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F287D245B97F00002F841 /* CommunityTableViewCell.swift */; };
 		CE3464CF2457991D0067A9AA /* OneRepMaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464CE2457991D0067A9AA /* OneRepMaxViewController.swift */; };
 		CE3464D124579B280067A9AA /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464D024579B280067A9AA /* ProfilePageViewController.swift */; };
 		CE3464D324579B370067A9AA /* CommunityFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464D224579B370067A9AA /* CommunityFeedViewController.swift */; };
@@ -14,7 +16,6 @@
 		CE3464D92457CAA70067A9AA /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464D82457CAA70067A9AA /* Alert.swift */; };
 		CE3464DB2457D8EE0067A9AA /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464DA2457D8EE0067A9AA /* NewWorkoutViewController.swift */; };
 		CE3464DD2457DCFC0067A9AA /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464DC2457DCFC0067A9AA /* Workout.swift */; };
-		CE3464E224589ECD0067A9AA /* ExercisesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3464E124589ECD0067A9AA /* ExercisesTableViewCell.swift */; };
 		CEAD7A9B245A4C8A005DA1B7 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD7A9A245A4C8A005DA1B7 /* Exercise.swift */; };
 		CEC7D8E424577E5A00745385 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7D8E324577E5A00745385 /* UserProfile.swift */; };
 		CEC7D8E624577E7300745385 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC7D8E524577E7300745385 /* UserService.swift */; };
@@ -27,7 +28,6 @@
 		CEF272B924574244004FB0D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF272B724574244004FB0D8 /* LaunchScreen.storyboard */; };
 		CEF272C124574345004FB0D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEF272C024574345004FB0D8 /* GoogleService-Info.plist */; };
 		CEF272C324574DC0004FB0D8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF272C224574DC0004FB0D8 /* LoginViewController.swift */; };
-		CEF272C5245752A5004FB0D8 /* FlexibleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF272C4245752A4004FB0D8 /* FlexibleTextField.swift */; };
 		CEF272C724576FA3004FB0D8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF272C624576FA3004FB0D8 /* SignUpViewController.swift */; };
 		E31D55E023DF983E97FCBDE1 /* Pods_Top_Set.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040E64B0A5677277D3583868 /* Pods_Top_Set.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +36,8 @@
 		040E64B0A5677277D3583868 /* Pods_Top_Set.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Top_Set.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40744D2B01D9F2D415232AB7 /* Pods-Top Set.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Top Set.debug.xcconfig"; path = "Target Support Files/Pods-Top Set/Pods-Top Set.debug.xcconfig"; sourceTree = "<group>"; };
 		9F884373B7A5EFF9981A3321 /* Pods-Top Set.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Top Set.release.xcconfig"; path = "Target Support Files/Pods-Top Set/Pods-Top Set.release.xcconfig"; sourceTree = "<group>"; };
+		CE2F287B245B857D0002F841 /* TextViewAutoHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewAutoHeight.swift; sourceTree = "<group>"; };
+		CE2F287D245B97F00002F841 /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
 		CE3464CE2457991D0067A9AA /* OneRepMaxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneRepMaxViewController.swift; sourceTree = "<group>"; };
 		CE3464D024579B280067A9AA /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		CE3464D224579B370067A9AA /* CommunityFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityFeedViewController.swift; sourceTree = "<group>"; };
@@ -43,7 +45,6 @@
 		CE3464D82457CAA70067A9AA /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		CE3464DA2457D8EE0067A9AA /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
 		CE3464DC2457DCFC0067A9AA /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
-		CE3464E124589ECD0067A9AA /* ExercisesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewCell.swift; sourceTree = "<group>"; };
 		CEAD7A9A245A4C8A005DA1B7 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		CEC7D8E324577E5A00745385 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		CEC7D8E524577E7300745385 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		CEF272BA24574244004FB0D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEF272C024574345004FB0D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEF272C224574DC0004FB0D8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		CEF272C4245752A4004FB0D8 /* FlexibleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleTextField.swift; sourceTree = "<group>"; };
 		CEF272C624576FA3004FB0D8 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +106,7 @@
 		CE3464E024589EA00067A9AA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				CE3464E124589ECD0067A9AA /* ExercisesTableViewCell.swift */,
+				CE2F287D245B97F00002F841 /* CommunityTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -157,7 +157,7 @@
 				CEF272B724574244004FB0D8 /* LaunchScreen.storyboard */,
 				CEF272BA24574244004FB0D8 /* Info.plist */,
 				CEF272C024574345004FB0D8 /* GoogleService-Info.plist */,
-				CEF272C4245752A4004FB0D8 /* FlexibleTextField.swift */,
+				CE2F287B245B857D0002F841 /* TextViewAutoHeight.swift */,
 			);
 			path = "Top Set";
 			sourceTree = "<group>";
@@ -287,12 +287,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE3464E224589ECD0067A9AA /* ExercisesTableViewCell.swift in Sources */,
 				CE3464D524579B480067A9AA /* PersonalFeedViewController.swift in Sources */,
 				CEC7D8E624577E7300745385 /* UserService.swift in Sources */,
 				CEC7D8E824577E8E00745385 /* ImageService.swift in Sources */,
 				CE3464DD2457DCFC0067A9AA /* Workout.swift in Sources */,
 				CE3464CF2457991D0067A9AA /* OneRepMaxViewController.swift in Sources */,
+				CE2F287C245B857D0002F841 /* TextViewAutoHeight.swift in Sources */,
 				CEF272C324574DC0004FB0D8 /* LoginViewController.swift in Sources */,
 				CE3464D124579B280067A9AA /* ProfilePageViewController.swift in Sources */,
 				CE3464D92457CAA70067A9AA /* Alert.swift in Sources */,
@@ -302,7 +302,7 @@
 				CE3464DB2457D8EE0067A9AA /* NewWorkoutViewController.swift in Sources */,
 				CEC7D8E424577E5A00745385 /* UserProfile.swift in Sources */,
 				CE3464D324579B370067A9AA /* CommunityFeedViewController.swift in Sources */,
-				CEF272C5245752A5004FB0D8 /* FlexibleTextField.swift in Sources */,
+				CE2F287E245B97F00002F841 /* CommunityTableViewCell.swift in Sources */,
 				CEF272AF2457423F004FB0D8 /* SceneDelegate.swift in Sources */,
 				CEF272C724576FA3004FB0D8 /* SignUpViewController.swift in Sources */,
 			);

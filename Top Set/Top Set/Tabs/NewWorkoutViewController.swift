@@ -8,137 +8,74 @@
 
 import UIKit
 import Firebase
+import TinyConstraints
+import KMPlaceholderTextView
 
 
 
 
-class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
-
-    
+class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource  {
 
     
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var postButton: UIButton!
-    let dateFormatter = DateFormatter()
     @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var exercisesTableView: UITableView!
-    @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var bodyPartTextField: UITextField!
+    
+    let dateFormatter = DateFormatter()
+
     
     let postRef = Database.database().reference().child("posts").childByAutoId()
     
-
-    var exercisesList = [String]()
-    var setsList = [Int]()
-    var repsList = [Int]()
-    var RPEList = [Int]()
+    lazy var textView: KMPlaceholderTextView = {
+        let tv = KMPlaceholderTextView()
+        tv.layer.cornerRadius = 8
+        tv.layer.borderWidth = 1.0
+        tv.layer.borderColor = UIColor.systemGreen.cgColor
+        tv.placeholder = "Enter details here"
+        return tv
+    }()
     
-    let numbersOptionsTwenty = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-    let numbersOptionsTen = [1,2,3,4,5,6,7,8,9,10]
+    let muscleGroups = ["Chest", "Back", "Legs", "Abs", "Arms", "Triceps", "Biceps", "Shoulders", "Chest + Triceps", "Back + Biceps", "Upper Body", "Lower Body"]
+    let musclePicker = UIPickerView()
     
-    var twoDimensionalArray = [[String]]()
-    
-    var twoD = [
-        [], // section 1
-        [], // section 2
-        [] // section 3
-    ]
-    var allExercisesCollection = [String: [String]]()
-
-    
-    var headers = [String]()
-    
-    let repsNumberPicker = UIPickerView()
-    let setsNumberPicker = UIPickerView()
-    let RPENumberPicker = UIPickerView()
-    
-//    let insertPopUp = UIAlertController(title: "Add Exercise", message: "", preferredStyle: UIAlertController.Style.alert)
-    var insertPopUp = UIAlertController()
-
-
-    
-    override func viewDidLoad() {
         
+    override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(textView)
+        textView.topToBottom(of: bodyPartTextField, offset: 30)
+        textView.leftToSuperview(offset: 40, usingSafeArea: true)
+        textView.rightToSuperview(offset: -40, usingSafeArea: true)
+        textView.height(250)
+        
+        
+        musclePicker.delegate = self
+        bodyPartTextField.inputView = musclePicker
+
+
         titleTextField.delegate = self
+        dateTextField.delegate = self
+        bodyPartTextField.delegate = self
+        
         postButton.isEnabled = false
         postButton.alpha = 0.5
         [titleTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+//        [dateTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+//        [bodyPartTextField].forEach({ $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged) })
+
 
         setupUI()
         
         let datePicker = UIDatePicker()
-        datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
+        datePicker.datePickerMode = UIDatePicker.Mode.date
         datePicker.addTarget(self, action: #selector(NewWorkoutViewController.datePickerValueChanged(sender:)), for: UIControl.Event.valueChanged)
         
         dateTextField.inputView = datePicker
-
-        setsNumberPicker.delegate = self
-        setsNumberPicker.tag = 1
-        repsNumberPicker.delegate = self
-        repsNumberPicker.tag = 2
-        RPENumberPicker.delegate = self
-        RPENumberPicker.tag = 3
         
     }
-    
-    @IBAction func addButtonPressed(_ sender: Any) {
-        //Alert.addExercise(on: self)
         
-        insertPopUp = UIAlertController(title: "Add Exercise", message: "", preferredStyle: UIAlertController.Style.alert)
-        
-        let addAction = UIAlertAction(title: "Add", style: .default){(_) in
-            let exerciseName = self.insertPopUp.textFields?[0].text
-            let sets = Int((self.insertPopUp.textFields?[1].text)!)
-            let reps = Int((self.insertPopUp.textFields?[2].text)!)
-            let RPE = Int((self.insertPopUp.textFields?[3].text)!)
-            //print(sets)
-            
-
-            self.exercisesList.append(exerciseName ?? "No Name Provided :(")
-            self.repsList.append(reps ?? 0)
-            self.setsList.append(sets ?? 0)
-            self.RPEList.append(RPE ?? 0)
-            
-
-            
-            let indexPath = IndexPath(row: self.exercisesList.count - 1, section: 0)
-            self.exercisesTableView.beginUpdates()
-            self.exercisesTableView.insertRows(at: [indexPath], with: .right)
-            self.exercisesTableView.endUpdates()
-
-            
-
-        }
-        
-
-        insertPopUp.addTextField { (nameTextField) in
-            nameTextField.placeholder = "Exercise name"
-        }
-        insertPopUp.addTextField { (setsTextField) in
-            setsTextField.placeholder = "Sets"
-            setsTextField.inputView = self.setsNumberPicker
-
-        }
-        
-        insertPopUp.addTextField { (repsTextField) in
-            repsTextField.placeholder = "Reps"
-            repsTextField.inputView = self.repsNumberPicker
-        }
-        
-        insertPopUp.addTextField { (RPETextField) in
-            RPETextField.placeholder = "RPE"
-            RPETextField.inputView = self.RPENumberPicker
-        }
-
-        
-        insertPopUp.addAction(addAction)
-        insertPopUp.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(insertPopUp, animated: true)
-        
-    }
-    
-    
     @objc func editingChanged(_ textField: UITextField) {
         if textField.text?.count == 1 {
             if textField.text?.first == " " {
@@ -155,9 +92,30 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UITableVi
         }
         postButton.isEnabled = true
         postButton.alpha = 1.0
+        
+//        guard
+//            let date = dateTextField.text, !date.isEmpty
+//        else {
+//            self.postButton.isEnabled = false
+//            postButton.alpha = 0.5
+//            return
+//        }
+//        postButton.isEnabled = true
+//        postButton.alpha = 1.0
+//
+//        guard
+//            let bodyPart = bodyPartTextField.text, !bodyPart.isEmpty
+//        else {
+//            self.postButton.isEnabled = false
+//            postButton.alpha = 0.5
+//            return
+//        }
+//        postButton.isEnabled = true
+//        postButton.alpha = 1.0
     }
     
     @IBAction func handlePostButton(_ sender: Any) {
+        
         
         guard let userProfile = UserService.currentUserProfile else {
             print("error in userProfile")
@@ -165,7 +123,9 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UITableVi
         }
         guard let title = titleTextField.text else { return }
         guard let workoutDate = dateTextField.text else { return }
-        
+        guard let details = textView.text else { return }
+        guard let bodyPart = bodyPartTextField.text else { return }
+
         if title == "" {
             Alert.showInCompleteFormAlert(on: self)
             return
@@ -186,9 +146,8 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UITableVi
                 "postID": postRef.key!,
                 "title": title,
                 "workoutDate": workoutDate,
-                "exercises": exercisesList,
-                "sets": setsList,
-                "reps": repsList
+                "bodyPart": bodyPart,
+                "details": details
             ] as [String:Any]
 
             postRef.setValue(postObject, withCompletionBlock: { error, ref in
@@ -209,9 +168,8 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UITableVi
                 "main_feed_id": postRef.key!,
                 "title": title,
                 "workoutDate": workoutDate,
-                "exercises": exercisesList,
-                "sets": setsList,
-                "reps": repsList
+                "details": details,
+                "bodyPart": bodyPart
             ] as [String: Any]
 
             personalFeedRef.updateChildValues(listingObject) { (error, ref) in
@@ -221,6 +179,16 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UITableVi
             }
         //}
         
+        switchToDataTabCont()
+        
+    }
+    
+    func switchToDataTab() {
+        Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(switchToDataTabCont), userInfo: nil, repeats: false)
+    }
+
+    @objc func switchToDataTabCont(){
+        tabBarController!.selectedIndex = 0
     }
 
     
@@ -252,88 +220,41 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UITableVi
         dateTextField.borderStyle = UITextField.BorderStyle.none
         dateTextField.layer.addSublayer(dateButtonLine)
         
+        let bodyPartBottomLine = CALayer()
+        bodyPartBottomLine.frame = CGRect(x: 0.0, y: bodyPartTextField.frame.height - 1, width: bodyPartTextField.frame.width, height: 1.0)
+        bodyPartBottomLine.backgroundColor = UIColor.systemGreen.cgColor
+        bodyPartTextField.borderStyle = UITextField.BorderStyle.none
+        bodyPartTextField.layer.addSublayer(bodyPartBottomLine)
+        
         postButton.layer.cornerRadius = 10
-        toolbar.backgroundColor = UIColor.systemGray
     }
     
     
     
-    /* ---------- Table View Functions ---------- */
+    /* ---------- Table Field Functions ---------- */
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return range.location < 20
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-            //return twoDimensionalArray[section].count
-        return exercisesList.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = exercisesTableView.dequeueReusableCell(withIdentifier: "exerciseCell", for: indexPath) as! ExercisesTableViewCell
+    /* ---------- Picker Functions ---------- */
     
-        let exerciseName = exercisesList[indexPath.row]
-        let setCount = setsList[indexPath.row]
-        let repCount = repsList[indexPath.row]
-        let RPE = RPEList[indexPath.row]
-        
-        cell.setLabel.text = "\(indexPath.row + 1)"
-        cell.exerciseNameLabel.text = exerciseName
-        cell.setsLabel.text = String(setCount)
-        cell.repsLabel.text = String(repCount)
-        cell.RPELabel.text = "(RPE @\(RPE))"
-        
-        return cell
-    }
-    
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-
-    
-
-    /* ---------- Picker View Functions ---------- */
-
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
-        if pickerView.tag == 1 || pickerView.tag == 2 {
-            return numbersOptionsTwenty.count
-        } else if pickerView.tag == 3 {
-            return numbersOptionsTen.count
-        }
-        
-        return 0
+
+    func pickerView( _ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return muscleGroups.count
     }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView.tag == 1 || pickerView.tag == 2 {
-            return String(numbersOptionsTwenty[row])
-        } else if pickerView.tag == 3 {
-            return String(numbersOptionsTen[row])
-        }
-        return nil
+
+    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return muscleGroups[row]
     }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView.tag == 1 {
-            insertPopUp.textFields![1].text = String(numbersOptionsTwenty[row])
-        } else if pickerView.tag == 2 {
-            insertPopUp.textFields![2].text = String(numbersOptionsTwenty[row])
-        } else if pickerView.tag == 3 {
-            insertPopUp.textFields![3].text = String(numbersOptionsTen[row])
-        }
-            
+
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        bodyPartTextField.text = muscleGroups[row]
     }
-    
-     
-    
+
 }
 
 
