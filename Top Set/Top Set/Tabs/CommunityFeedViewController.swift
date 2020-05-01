@@ -12,20 +12,15 @@ import Firebase
 class CommunityFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var mainRef: DatabaseReference!
-    var workouts = [Workout]()
     var workoutsList = [Workout]()
-
     @IBOutlet weak var communityFeedTableView: UITableView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
 
     }
-    
 
-    
     func loadData(){
         mainRef = Database.database().reference().child("posts")
         
@@ -41,15 +36,18 @@ class CommunityFeedViewController: UIViewController, UITableViewDelegate, UITabl
                     let title = workoutObj?["title"]
                     let postID = workoutObj?["postID"]
                     let bodyPart = workoutObj?["bodyPart"]
+                    let timestamp = workoutObj?["timestamp"]
 
-                    let workout = Workout(id: postID as! String, title: title as! String, date: date as! String, details: details as! String, bodyPart: bodyPart as! String)
+                    let workout = Workout(id: postID as! String, title: title as! String, date: date as! String, details: details as! String, bodyPart: bodyPart as! String, timestamp: timestamp as! Double)
 
                     self.workoutsList.append(workout)
+
                     print(self.workoutsList)
                     
                 }
-                
+                self.workoutsList = self.workoutsList.reversed()
                 self.communityFeedTableView.reloadData()
+
             }
         })
 
@@ -69,17 +67,10 @@ class CommunityFeedViewController: UIViewController, UITableViewDelegate, UITabl
         workout = workoutsList[indexPath.row]
         cell.titleLabel.text = workout.title
         cell.bodyPartLabel.text = workout.bodyPart
-        cell.dateLabel.text = workout.date
+        cell.dateLabel.text = "Workout on\n\(workout.date)"
         cell.descriptionCell.text = workout.details
         
         return cell
     }
     
-    
-    
-
-    
-
-    
-
 }

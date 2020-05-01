@@ -28,6 +28,7 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     let postRef = Database.database().reference().child("posts").childByAutoId()
     
+        
     lazy var textView: KMPlaceholderTextView = {
         let tv = KMPlaceholderTextView()
         tv.layer.cornerRadius = 8
@@ -166,6 +167,7 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UIPickerV
             let listingObject = [
                 "personal_feed_id": personalFeedRef.key!,
                 "main_feed_id": postRef.key!,
+                "timestamp": [".sv":"timestamp"],
                 "title": title,
                 "workoutDate": workoutDate,
                 "details": details,
@@ -194,7 +196,7 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UIPickerV
     
     @objc func datePickerValueChanged(sender: UIDatePicker){
         dateFormatter.dateStyle = DateFormatter.Style.short
-        dateFormatter.timeStyle = DateFormatter.Style.short
+        //dateFormatter.timeStyle = DateFormatter.Style.short
         
         let strDate = dateFormatter.string(from: sender.date)
         dateTextField.text = strDate
