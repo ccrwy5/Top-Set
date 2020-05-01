@@ -11,7 +11,7 @@ import Firebase
 
 class PersonalFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var personalWorkoutsList = [Workout]()
+    var personalWorkoutsList = [PersonalWorkout]()
     var personalRef: DatabaseReference!
     @IBOutlet weak var personalFeedTableView: UITableView!
     
@@ -36,10 +36,11 @@ class PersonalFeedViewController: UIViewController, UITableViewDelegate, UITable
                     let date = workoutObj?["workoutDate"]
                     let title = workoutObj?["title"]
                     let postID = workoutObj?["personal_feed_id"]
+                    let mainID = workoutObj?["main_feed_id"]
                     let bodyPart = workoutObj?["bodyPart"]
                     let timestamp = workoutObj?["timestamp"]
 
-                    let workout = Workout(id: postID as! String, title: title as! String, date: date as! String, details: details as! String, bodyPart: bodyPart as! String, timestamp: timestamp as! Double)
+                    let workout = PersonalWorkout(id: postID as! String, title: title as! String, date: date as! String, details: details as! String, bodyPart: bodyPart as! String, timestamp: timestamp as! Double, mainID: mainID as! String)
 
                     self.personalWorkoutsList.append(workout)
 
@@ -51,9 +52,21 @@ class PersonalFeedViewController: UIViewController, UITableViewDelegate, UITable
 
             }
         })
+    }
+    
+    func updateWorkout(id:String, title: String, details: String, mainID: String){
+        let currentUser = Auth.auth().currentUser?.uid
+        personalRef = Database.database().reference().child("users").child("profile").child(currentUser!).child("User's Workouts")
+        let mainRef = Database.database().reference().child("posts")
 
-
-
+        let newValues = [
+            "id": id,
+            "title": title,
+            "details": details
+        ]
+                
+        personalRef.child(id).updateChildValues(newValues)
+        mainRef.child(mainID).updateChildValues(newValues)
     }
     
     
@@ -69,24 +82,22 @@ class PersonalFeedViewController: UIViewController, UITableViewDelegate, UITable
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalTableViewCell
         
-        let myWorkout: Workout
+        let myWorkout: PersonalWorkout
         myWorkout = personalWorkoutsList[indexPath.row]
         cell.titleLabel.text = myWorkout.title
-//        cell.bodyPartLabel.text = workout.bodyPart
-//        cell.dateLabel.text = "Workout on\n\(workout.date)"
-//        cell.descriptionCell.text = workout.details
+        cell.bodyPartLabel.text = myWorkout.bodyPart
+        cell.descriptionLabel.text = myWorkout.details
         
         return cell
-        
-        
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        
         let currentUser = (Auth.auth().currentUser?.uid)!
         let selectedWorkout = self.personalWorkoutsList[indexPath.row]
         
+        
+        /* Delete Swipe */
         let deleteSwipe = UIContextualAction(style: .destructive, title: "Delete Workout") {  (contextualAction, view, boolValue) in
 
             let localDeleteRef = Database.database().reference().child("users").child("profile").child(currentUser).child("User's Workouts")
@@ -113,7 +124,48 @@ class PersonalFeedViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         
-        let swipeActions = UISwipeActionsConfiguration(actions: [deleteSwipe])
+        /* Update Swipe */
+        
+        let updateSwipe = UIContextualAction(style: .normal, title: "Update Workout") {  (contextualAction, view, boolValue) in
+            let workout = self.personalWorkoutsList[indexPath.row]
+
+            let alertController = UIAlertController(title: workout.title, message: "Give new values to update", preferredStyle: .alert)
+            
+            let updateAction = UIAlertAction(title: "Update", style: .default){(_) in
+                let id = workout.id
+                let title = alertController.textFields?[0].text
+                let details = alertController.textFields?[01].text
+                
+                self.updateWorkout(id: id, title: title!, details: details!, mainID: workout.mainID)
+            }
+        
+            alertController.addAction(updateAction)
+            alertController.addTextField { (textField) in
+                textField.text = workout.title
+                
+            }
+            alertController.addTextField { (textField) in
+                textField.text = workout.details
+                
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+
+
+            
+        }
+        updateSwipe.backgroundColor = UIColor(red: 0/255, green: 173/255, blue: 242/255, alpha: 1.0)
+        
+        
+        
+        
+        
+        
+        /* Add Actions */
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteSwipe, updateSwipe])
         return swipeActions
     }
     
