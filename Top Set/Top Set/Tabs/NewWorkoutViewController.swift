@@ -182,6 +182,10 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UIPickerV
         //}
         
         switchToDataTabCont()
+        titleTextField.text = ""
+        dateTextField.text = ""
+        bodyPartTextField.text = ""
+        textView.text = ""
         
     }
     
@@ -236,7 +240,7 @@ class NewWorkoutViewController: UIViewController, UITextFieldDelegate, UIPickerV
     /* ---------- Table Field Functions ---------- */
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return range.location < 20
+        return range.location < 30
     }
     
     /* ---------- Picker Functions ---------- */
