@@ -12,3 +12,7 @@ When downloading or cloning this project, you will see an Xcode project file and
 
 ### Click to watch demo video:
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/VHlHy7Z7YFo/0.jpg)](https://www.youtube.com/watch?v=VHlHy7Z7YFo&feature=youtu.be)
+
+### Credits:
+App Icon and logo were made at https://logomakr.com/   
+Background images on login and signup page, and header image on calculator page are via https://unsplash.com/
